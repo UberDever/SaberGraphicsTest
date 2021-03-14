@@ -16,6 +16,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="shaders\light.glsl" />
+    <None Include="shaders\MainScene.fs" />
+    <None Include="shaders\MainScene.vs" />
+    <None Include="meshes\CubeHardEdges.model" />
+    <None Include="meshes\CubeSmoothedBlender.model" />
+    <None Include="meshes\CylinderHardEdges.model" />
+    <None Include="meshes\CylinderSmoothedBlender.model" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLAD\glad.c">
@@ -86,5 +93,40 @@
     <ClInclude Include="Assignment\NormalSmoothing.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Assignment\BinaryConverter.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment\RandomList.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\blue.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="textures\DetailLook.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="textures\DetailLookCylinders.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="textures\green.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="textures\pink.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="textures\ShadowComparison.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="textures\Showcase.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="textures\ShowcaseCylinders.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="textures\teapot.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
   </ItemGroup>
 </Project>

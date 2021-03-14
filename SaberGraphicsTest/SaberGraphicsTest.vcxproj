@@ -161,10 +161,19 @@
     <ClCompile Include="src\shader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="meshes\CubeHardEdges.model" />
+    <None Include="meshes\CubeSmoothedBlender.model" />
+    <None Include="meshes\CylinderHardEdges.model" />
+    <None Include="meshes\CylinderSmoothedBlender.model" />
     <None Include="packages.config" />
+    <None Include="shaders\light.glsl" />
+    <None Include="shaders\MainScene.fs" />
+    <None Include="shaders\MainScene.vs" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Assignment\BinaryConverter.hpp" />
     <ClInclude Include="Assignment\NormalSmoothing.hpp" />
+    <ClInclude Include="Assignment\RandomList.hpp" />
     <ClInclude Include="GLAD\glad.h" />
     <ClInclude Include="GLAD\khrplatform.h" />
     <ClInclude Include="include\app.hpp" />
@@ -176,6 +185,17 @@
     <ClInclude Include="include\scene.hpp" />
     <ClInclude Include="include\shader.hpp" />
     <ClInclude Include="include\stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\blue.png" />
+    <Image Include="textures\DetailLook.png" />
+    <Image Include="textures\DetailLookCylinders.png" />
+    <Image Include="textures\green.png" />
+    <Image Include="textures\pink.png" />
+    <Image Include="textures\ShadowComparison.png" />
+    <Image Include="textures\Showcase.png" />
+    <Image Include="textures\ShowcaseCylinders.png" />
+    <Image Include="textures\teapot.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

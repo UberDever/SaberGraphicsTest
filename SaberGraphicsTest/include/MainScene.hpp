@@ -23,9 +23,13 @@ class MainScene : public Scene
 	Model* cubeSmoothEdges;
 	Model* cubeSmoothedByMe;
 
+	Model* cylinderHardEdges;
+	Model* cylinderSmoothEdges;
+	Model* cylinderSmoothedByMe;
+
 	glm::vec3 pLightPosition = { 0, 0, 0 };
 
-	glm::vec3 pLightAttenuation = { 0.008, 0.03, 1 };
+	glm::vec3 pLightAttenuation = { 0.032, 0.09, 1 };
 	glm::vec3 pLightAmbient = { 0.65, 0.65, 0.65 };
 	glm::vec3 pLightDiffuse = { 0.8, 0.8, 0.8 };
 	glm::vec3 pLightSpecular = { 1, 1, 1 };

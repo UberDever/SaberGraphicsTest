@@ -24,17 +24,16 @@ MainScene::MainScene() : mRenderer(Shader(vertexShaderPath, fragmentShaderPath))
 	*/
 
 	{
-		Mesh cubeHardEdgesMesh = obj_parse("meshes/CubeHardEdges.obj");
+		Mesh cubeHardEdgesMesh = obj_parse("meshes/CubeHardEdges.model");
 		cubeHardEdges = new Model(cubeHardEdgesMesh);
-		Texture diffuseMap("textures/green.png");
+		Texture diffuseMap("textures/pink.png");
 		cubeHardEdges->addTexture(diffuseMap);
-		Texture specularMap("textures/green.png");
+		Texture specularMap("textures/pink.png");
 		cubeHardEdges->addTexture(specularMap);
 	}
 
 	{
-		Mesh cubeSmoothEdgesMesh = obj_parse("meshes/CubeSmoothedBlender.obj", true);
-		recalculateNormals(&cubeSmoothEdgesMesh);
+		Mesh cubeSmoothEdgesMesh = obj_parse("meshes/CubeSmoothedBlender.model");
 		cubeSmoothEdges = new Model(cubeSmoothEdgesMesh);
 		Texture diffuseMap("textures/green.png");
 		cubeSmoothEdges->addTexture(diffuseMap);
@@ -43,12 +42,42 @@ MainScene::MainScene() : mRenderer(Shader(vertexShaderPath, fragmentShaderPath))
 	}
 
 	{
-		Mesh cubeSmoothedByMeMesh = obj_parse("meshes/CubeHardEdges.obj");
+		Mesh cubeSmoothedByMeMesh = obj_parse("meshes/CubeHardEdges.model");
+		smoothNormals<true>(&cubeSmoothedByMeMesh);
 		cubeSmoothedByMe = new Model(cubeSmoothedByMeMesh);
-		Texture diffuseMap("textures/green.png");
+		Texture diffuseMap("textures/blue.png");
 		cubeSmoothedByMe->addTexture(diffuseMap);
-		Texture specularMap("textures/green.png");
+		Texture specularMap("textures/blue.png");
 		cubeSmoothedByMe->addTexture(specularMap);
+	}
+
+	{
+		Mesh cylinderHardEdgesMesh = obj_parse("meshes/CylinderHardEdges.model");
+		smoothNormals<false>(&cylinderHardEdgesMesh);
+		cylinderHardEdges = new Model(cylinderHardEdgesMesh);
+		Texture diffuseMap("textures/pink.png");
+		cylinderHardEdges->addTexture(diffuseMap);
+		Texture specularMap("textures/pink.png");
+		cylinderHardEdges->addTexture(specularMap);
+	}
+
+	{
+		Mesh cylinderSmoothEdgesMesh = obj_parse("meshes/CylinderSmoothedBlender.model");
+		cylinderSmoothEdges = new Model(cylinderSmoothEdgesMesh);
+		Texture diffuseMap("textures/blue.png");
+		cylinderSmoothEdges->addTexture(diffuseMap);
+		Texture specularMap("textures/blue.png");
+		cylinderSmoothEdges->addTexture(specularMap);
+	}
+
+	{
+		Mesh cylinderSmoothedByMeMesh = obj_parse("meshes/CylinderHardEdges.model");
+		smoothNormals<true>(&cylinderSmoothedByMeMesh);
+		cylinderSmoothedByMe = new Model(cylinderSmoothedByMeMesh);
+		Texture diffuseMap("textures/green.png");
+		cylinderSmoothedByMe->addTexture(diffuseMap);
+		Texture specularMap("textures/green.png");
+		cylinderSmoothedByMe->addTexture(specularMap);
 	}
 
 	mCamera.setProjection(glm::radians(90.0f), (float)App::instance().getW() / (float)App::instance().getH(), 0.1f, 100.0f);
@@ -162,6 +191,10 @@ void MainScene::render()
 	mRenderer.add(*cubeHardEdges, glm::vec3(-3, 0, 5), glm::vec3(0, 0, 0), glm::vec3(1, 1, 1));
 	mRenderer.add(*cubeSmoothEdges, glm::vec3(0, 0, 5), glm::vec3(0, 0, 0), glm::vec3(1, 1, 1));
 	mRenderer.add(*cubeSmoothedByMe, glm::vec3(3, 0, 5), glm::vec3(0, 0, 0), glm::vec3(1, 1, 1));
+
+	mRenderer.add(*cylinderHardEdges, glm::vec3(-3, 0, -5), glm::vec3(0, 0, 0), glm::vec3(1, 1, 1));
+	mRenderer.add(*cylinderSmoothEdges, glm::vec3(0, 0, -5), glm::vec3(0, 0, 0), glm::vec3(1, 1, 1));
+	mRenderer.add(*cylinderSmoothedByMe, glm::vec3(3, 0, -5), glm::vec3(0, 0, 0), glm::vec3(1, 1, 1));
 
 	mRenderer.mainShader().set1i("u_pLightCount", mRenderer.getPointLightCount());
 

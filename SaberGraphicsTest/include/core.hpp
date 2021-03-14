@@ -19,6 +19,8 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtx/rotate_vector.hpp>
 #include <glm/gtc/matrix_inverse.hpp>
+#include <glm/gtx/vector_angle.hpp>
+#include "glm/gtx/hash.hpp"
 
 #include "stb_image.h"
 
